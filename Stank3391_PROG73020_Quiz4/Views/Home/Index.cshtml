@@ -1,0 +1,33 @@
+﻿@using Stank3391_PROG73020_Quiz4.Entities
+@model List<Bpmeasurement>
+
+@{
+    ViewData["Title"] = "Index of All Measurements";
+}
+
+<h1>BP Measurements</h1>
+
+<p>
+    <!-- an HTML table showing our BP Measurements: -->
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Systolic</th>
+                <th>Diastolic</th>
+                <th>Date of Measurement</th>
+                <th>Position</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Bpmeasurement bpmeasurement in Model)
+            {
+                <tr>
+                    <td>@bpmeasurement.Systolic</td>
+                    <td>@bpmeasurement.Diastolic</td>
+                    <td>@bpmeasurement.MeasurementDate.ToString("MM/dd/yyyy")</td>
+                    <td>@bpmeasurement.MeasurementPosition.Name</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</p>
